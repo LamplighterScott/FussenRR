@@ -23,20 +23,25 @@ Analog A0 and A1 pinouts measure the Motor Shield output amperage, allowing the 
 in case of a short on the tracks.  Turnouts, decouplers and signals are controlled by pinouts 22 to 49.  In order to
 function as the DCC++ controller, talk to the ESP-01, DF Player, shirt registers and MOSFETs, you need to upload the
 "DCCpp_Mega_MZ.ino" Arduino script to the Mega.  The upload speed is set in the script at 115,200 baud.  Make sure your
-IDE (Arduino, ATOM, etc.) has the required library download to it from github, DFRobotDFPlayerMini).
+IDE (Arduino, ATOM, etc.) has the required library download to it from github, DFRobotDFPlayerMini).  The upload is carried
+out on Serial Zero Tx0/Rx0 which can be accessed via the Mega's USB port from a PC.  The Mega has build-in USB to Uart
+converter for this purpose.
 
 The MOSFET circuits receive individual high signals from the Mega pin outs 22-49.  One MOSFET drives one solenoid.
 Switching is via the negative outputs.  Positive is common.
 
-The shift registers receive clock and data signals from three Mega pin outs.  They drive all the turnout LEDs.
+The shift registers receive clock and data signals from three Mega pin outs (A13, A14, A15).  They drive all the turnout LEDs.
 A series of resisters drop the voltage on the positive to each of the red and green LEDs so the brightness is
 consistent between the two colors and the rest of the lighting on the set.  Switching is by the positve outputs.
 Negative is common.
 
-The DF Player is connected to the Mega's serial one Tx/Rx pins with a 1k ohm resister between the Mega's Tx1 pi
+The DF Player is connected to the Mega's Serial One Tx1/Rx1 pins with a 1k ohm resister between the Mega's Tx1 pi
 and the DF Player's Rx pin in order to drop the voltage from 5v to 3.3v.
+The DF Player removable flash card is loaded with mp3 sound files.  Each MP3 file name must start with four digits.
+The numbers should be in a continuous sequence: 0001xxx.mp3, 0002yyy.mp3 ... 0024zzz.mp3.
+xxx, yyy and zzz can be any numberic or alphabet letters of any length; no spaces; dash or underscore are okay.
 
-The ESP-01/adaptor is connected to the Mega's Serial three Tx3/Rx3 pin outs.  The ESP-01 should be the 1mB size.
+The ESP-01/adaptor is connected to the Mega's Serial Three Tx3/Rx3 pin outs.  The ESP-01 should be the 1mB size.
 The ESP-01 communicates via WiFi to a smart phone using either WiThrottle for the Android or iPhone, or via a HTML
 page tested on an iPhone and Safari.  The scripts for these two are different for the ESP-01.  The ESP-01 must be
 removed from the set and plugged into a USB adapter for uploading scripts and/or data files from a PC.  For the
