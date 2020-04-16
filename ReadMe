@@ -6,17 +6,17 @@ It runs on a TalentCell Power Bank YB12011000-USB rechargeable battery (11,000 m
 DeekRobot Motor Shield, Espressif ESP-01, Open-Smart ESP-01 Uart adapter, DF Player Mini, DSN-Mini-360 voltage
 regulator (5v in 4.2v out), seven FLAMIN Robot 4 UO1 MOSFET relays, four TI 74HC595N shift registers.
 
-The TalentCell lasts a long time inbetween charges.  It has two outputs.  The 12v output supplies 1) the
-motor shield for the DCC signal to the tracks and enginers, 2) the MOSFET relays controlling eight turnouts
-(two solenoids each), four decouplers (one solenoid each) and one signal (two solenoids), and 3) some structure
-LED lights.  The 5v output supplies 1) the ESP-01/Adapter, 2) DF Mini Player/voltage regulator, 3) the shift
+The TalentCell lasts a long time inbetween charges.  It has three outputs.  The 12v output supplies the MOSFET
+relays controlling eight turnouts (two solenoids each), four decouplers (one solenoid each) and one signal (two solenoids),
+as well as some structure LED lights.  The 9v output supplies the motor shield for the DCC signal to the tracks and engines.
+The 5v output supplies 1) the ESP-01/Adapter, 2) DF Mini Player/voltage regulator, 3) the shift
 registers/turnout LEDs and 4) some LED structure lights.
 
 The Motor Shield is piggy backed on the Mega and includes one jumper from pin 2 to 13 to configure it for DDC.
 It is receives 12v from the battery.  It supplies power to the Mega and puts out the DCC signal to the main and
 engine programming tracks.
 
-The Mega operates on the 12v from the Motor Shield or five volts from the USB connection to a PC.
+The Mega operates on the 9v from the Motor Shield or five volts from the USB connection to a PC.
 Serial zero is reserved for communication to a PC for script loading, debugging and engine programming via JMRI.
 Serial one is for the DF Player.  Serial three is for the ESP-01.  Pinouts 2-13 (not all) are reserved for the Motor Shield.
 Analog A0 and A1 pinouts measure the Motor Shield output amperage, allowing the Mega to disable the track power output
